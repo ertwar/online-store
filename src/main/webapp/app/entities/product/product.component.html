@@ -2,12 +2,13 @@
     <h2 id="page-heading">
         <span jhiTranslate="storeApp.product.home.title">Products</span>
 
+        <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  jhiTranslate="storeApp.product.home.createLabel">
             Create a new Product
             </span>
-        </button>
+        </button></div>
     </h2>
 
     <jhi-alert-error></jhi-alert-error>
@@ -81,6 +82,7 @@
     -->
 
     <div *ngIf="products">
+
         <!--
         <div class="mb-2 d-flex justify-content-end align-items-center">
             <span class="mr-2 col-2">Filter by name</span>
@@ -108,6 +110,7 @@
                 </button>
             </div>
         </div>
+
         -->
 
         <div class="list-group">
