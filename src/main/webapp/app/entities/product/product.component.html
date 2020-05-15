@@ -2,13 +2,13 @@
     <h2 id="page-heading">
         <span jhiTranslate="storeApp.product.home.title">Products</span>
 
-        <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  jhiTranslate="storeApp.product.home.createLabel">
             Create a new Product
             </span>
-        </button></div>
+        </button>
     </h2>
 
     <jhi-alert-error></jhi-alert-error>
