@@ -83,14 +83,13 @@
 
     <div *ngIf="products">
 
-        <!--
         <div class="mb-2 d-flex justify-content-end align-items-center">
             <span class="mr-2 col-2">Filter by name</span>
             <input type="search" class="form-control" [(ngModel)]="filter">
             <span class="mx-2 col-1">Sort by</span>
             <div class="btn-group" role="group"
                  jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
-                 [callback]="transition.bind(this)">
+                 > <!-- [callback]="transition.bind(this)" -->
                 <button type="button" class="btn btn-light" jhiSortBy="name">
                     <span jhiTranslate="storeApp.product.name">Name</span>
                     <span class="fa fa-sort"></span>
@@ -111,12 +110,10 @@
             </div>
         </div>
 
-        -->
-
         <div class="list-group">
             <div class="list-group-item list-group-item-action flex-column
                         align-items-start"
-               *ngFor="let product of (products | pureFilter:filter:'name'); trackBy: trackId">
+               *ngFor="let product of (products | pureFilter:filter:'name');"> <!-- trackBy: trackId -->
                 <div class="row">
                     <div class="col-2 col-xs-12 justify-content-center">
                         <img [src]="'data:' + product.imageContentType +

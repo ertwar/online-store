@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, HostBinding, OnInit, OnDestroy } from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -10,6 +10,8 @@ import { IProduct } from 'app/shared/model/product.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { ProductService } from './product.service';
 import { ProductDeleteDialogComponent } from './product-delete-dialog.component';
+
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'jhi-product',
@@ -26,6 +28,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   ngbPaginationPage = 1;
 
   filter!: string;
+  reverse!: boolean;
 
   constructor(
     protected productService: ProductService,
