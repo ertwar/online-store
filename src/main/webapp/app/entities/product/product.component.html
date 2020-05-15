@@ -110,7 +110,7 @@
             <a [routerLink]="['../product', product.id ]"
                class="list-group-item list-group-item-action flex-column
 align-items-start"
-               *ngFor="let product of products; trackBy: trackId">
+               *ngFor="let product of (products | pureFilter:filter:'name'); trackBy: trackId">
                 <div class="row">
                     <div class="col-2 col-xs-12 justify-content-center">
                         <img [src]="'data:' + product.imageContentType +
