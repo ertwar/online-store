@@ -34,7 +34,7 @@
             "otherEntityName": "product",
             "otherEntityRelationshipName": "orderItem",
             "relationshipName": "product",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         },
         {
             "relationshipType": "many-to-one",

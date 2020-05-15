@@ -18,7 +18,6 @@
         <span jhiTranslate="storeApp.customer.home.notFound">No customers found</span>
     </div>
 
-    <!--
     <div class="table-responsive" id="entities" *ngIf="customers?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
@@ -33,7 +32,7 @@
                     <th scope="col"  jhiSortBy="addressLine2"><span jhiTranslate="storeApp.customer.addressLine2">Address Line 2</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="city"><span jhiTranslate="storeApp.customer.city">City</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="country"><span jhiTranslate="storeApp.customer.country">Country</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="storeApp.customer.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.login"><span jhiTranslate="storeApp.customer.user">User</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -50,7 +49,7 @@
                     <td>{{ customer.city }}</td>
                     <td>{{ customer.country }}</td>
                     <td>
-                        {{ customer.user?.id }}
+                        {{ customer.user?.login }}
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
@@ -78,90 +77,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    -->
-    <div *ngIf="products">
-        <div class="mb-2 d-flex justify-content-end align-items-center">
-            <span class="mr-2 col-2">Filter by name</span>
-            <input type="search" class="form-control" [(ngModel)]="filter">
-            <span class="mx-2 col-1">Sort by</span>
-            <div class="btn-group" role="group"
-                 jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
-                 [callback]="transition.bind(this)">
-                <button type="button" class="btn btn-light" jhiSortBy="name">
-                    <span jhiTranslate="storeApp.product.name">Name</span>
-                    <span class="fa fa-sort"></span>
-                </button>
-                <button type="button" class="btn btn-light" jhiSortBy="price">
-                    <span jhiTranslate="storeApp.product.price">Price</span>
-                    <span class="fa fa-sort"></span>
-                </button>
-                <button type="button" class="btn btn-light" jhiSortBy="size">
-                    <span jhiTranslate="storeApp.product.size">Size</span>
-                    <span class="fa fa-sort"></span>
-                </button>
-                <button type="button" class="btn btn-light"
-                        jhiSortBy="productCategory.id">
-                    <span jhiTranslate="storeApp.product.productCategory">Product Category</span>
-                    <span class="fa fa-sort"></span>
-                </button>
-            </div>
-        </div>
-        <div class="list-group">
-            <a [routerLink]="['../product', product.id, 'edit' ]"
-               class="list-group-item list-group-item-action flex-column
-align-items-start"
-               *ngFor="let product of (products | pureFilter:filter:'name'); trackBy: trackId">
-                <div class="row">
-                    <div class="col-2 col-xs-12 justify-content-center">
-                        <img [src]="'data:' + product.imageContentType +
-                            ';base64,' + product.image"
-                             style="max-height:150px;" alt="product image"/>
-                    </div>
-                    <div class="col col-xs-12">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{product.name}}</h5>
-                            <small *ngIf="product.productCategory">
-                                <a [routerLink]="['../product-category',
-        product.productCategory?.id, 'edit' ]" >
-                                    {{product.productCategory?.id}}
-                                </a>
-                            </small>
-                        </div>
-                        <small class="mb-1">{{product.description}}</small>
-                        <p class="mb-1">Price: {{product.price | currency: 'USD'}}</p>
-                        <small>
-                            Size:
-                            <span jhiTranslate="{{'storeApp.Size.' +
-        product.size}}">
-        {{product.size}}</span>
-                        </small>
-                        <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
-                            <button type="submit"
-                                    [routerLink]="['/',
-{ outlets: { popup: 'product/'+ product.id + 'edit'} }]"
-                                    replaceUrl="true"
-                                    queryParamsHandling="merge"
-                                    class="btn btn-primary btn-sm">
-                                <span class="fa fa-pencil"></span>
-                                <span class="d-none d-md-inline"
-                                      jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
-                            <button type="submit"
-                                    [routerLink]="['/',
-{ outlets: { popup: 'product/'+ product.id + 'delete'} }]"
-                                    replaceUrl="true"
-                                    queryParamsHandling="merge"
-                                    class="btn btn-danger btn-sm">
-                                <span class="fa fa-remove"></span>
-                                <span class="d-none d-md-inline"
-                                      jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
     </div>
 
     <div *ngIf="customers?.length > 0">
