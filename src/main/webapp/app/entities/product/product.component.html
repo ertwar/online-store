@@ -79,7 +79,9 @@
         </table>
     </div>
     -->
+
     <div *ngIf="products">
+        <!--
         <div class="mb-2 d-flex justify-content-end align-items-center">
             <span class="mr-2 col-2">Filter by name</span>
             <input type="search" class="form-control" [(ngModel)]="filter">
@@ -106,10 +108,11 @@
                 </button>
             </div>
         </div>
+        -->
+
         <div class="list-group">
-            <a [routerLink]="['../product', product.id ]"
-               class="list-group-item list-group-item-action flex-column
-align-items-start"
+            <div class="list-group-item list-group-item-action flex-column
+                        align-items-start"
                *ngFor="let product of (products | pureFilter:filter:'name'); trackBy: trackId">
                 <div class="row">
                     <div class="col-2 col-xs-12 justify-content-center">
@@ -137,9 +140,7 @@ align-items-start"
                         </small>
                         <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <button type="submit"
-                                    [routerLink]="['/',
-{ outlets: { popup: 'product/'+
-product.id + 'edit'} }]"
+                                    [routerLink]="['/','product', product.id, 'edit']"
                                     replaceUrl="true"
                                     queryParamsHandling="merge"
                                     class="btn btn-primary btn-sm">
@@ -148,9 +149,8 @@ product.id + 'edit'} }]"
                                       jhiTranslate="entity.action.edit">Edit</span>
                             </button>
                             <button type="submit"
-                                    [routerLink]="['/',
-{ outlets: { popup: 'product/'+
-product.id + 'delete'} }]"
+                                    (click)="delete(product)"
+
                                     replaceUrl="true"
                                     queryParamsHandling="merge"
                                     class="btn btn-danger btn-sm">
@@ -161,9 +161,10 @@ product.id + 'delete'} }]"
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
+
 
     <div *ngIf="products?.length > 0">
         <div class="row justify-content-center">
