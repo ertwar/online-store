@@ -6,7 +6,12 @@ eg $input-color: red;
 ****************************/
 // Override Bootstrap variables
 @import 'bootstrap-variables';
+@import 'node_modules/bootswatch/dist/materia/variables';
 // Import Bootstrap source files from node_modules
 @import '~bootstrap/scss/bootstrap';
+@import 'node_modules/bootswatch/dist/materia/bootswatch';
+
+// bootswatch requires typescript@3.9.2
+// but our angular compiler requires typescript < 3.8.0
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
