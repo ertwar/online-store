@@ -5,6 +5,8 @@ import com.flourish.store.repository.ShipmentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.flourish.store.security.AuthoritiesConstants;
+import com.flourish.store.security.SecurityUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -47,7 +49,14 @@ public class ShipmentService {
     @Transactional(readOnly = true)
     public Page<Shipment> findAll(Pageable pageable) {
         log.debug("Request to get all Shipments");
-        return shipmentRepository.findAll(pageable);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
+        {
+            return shipmentRepository.findAll(pageable);
+        } else
+            return shipmentRepository.findAllByInvoiceOrderCustomerUserLogin(
+                SecurityUtils.getCurrentUserLogin().get(),
+                pageable
+            );
     }
 
     /**
@@ -59,7 +68,14 @@ public class ShipmentService {
     @Transactional(readOnly = true)
     public Optional<Shipment> findOne(Long id) {
         log.debug("Request to get Shipment : {}", id);
-        return shipmentRepository.findById(id);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
+        {
+            return shipmentRepository.findById(id);
+        } else
+            return shipmentRepository.findOneByIdAndCustomerUserLogin(
+                id,
+                SecurityUtils.getCurrentUserLogin().get()
+            );
     }
 
     /**

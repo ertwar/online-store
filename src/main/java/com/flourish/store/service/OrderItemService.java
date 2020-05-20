@@ -5,6 +5,8 @@ import com.flourish.store.repository.OrderItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.flourish.store.security.AuthoritiesConstants;
+import com.flourish.store.security.SecurityUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -47,7 +49,14 @@ public class OrderItemService {
     @Transactional(readOnly = true)
     public Page<OrderItem> findAll(Pageable pageable) {
         log.debug("Request to get all OrderItems");
-        return orderItemRepository.findAll(pageable);
+        if (SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN))
+        {
+            return orderItemRepository.findAll(pageable);
+        } else
+            return orderItemRepository.findAllByOrderCustomerUserLogin(
+                SecurityUtils.getCurrentUserLogin().get(),
+                pageable
+            );
     }
 
     /**
