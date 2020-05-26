@@ -24,15 +24,15 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
         "LEFT JOIN customer c on c.id=po.customer_id " +
         "LEFT JOIN jhi_user u on u.id=c.user_id WHERE u.login=?1";
 
-    String findOneQuery = query.toString().replace("?1","?2") + " AND s.id=?1";
-
     @Query(value = "select s.* " + query,
         countQuery = "SELECT count(s.*) " + query,
         nativeQuery=true)
     Page<Shipment> findAllByInvoiceOrderCustomerUserLogin(String login, Pageable pageable);
 
-    @Query(value = "select po.* " + findOneQuery,
-        countQuery = "select count(*) " + findOneQuery,
-        nativeQuery=true)
-    Optional<Shipment> findOneByIdAndCustomerUserLogin(Long id, String login);
+    //String findOneQuery = query.toString().replaceAll("?1","?2").concat(" AND s.id=?1");
+
+    //@Query(value = "select po.* " + findOneQuery,
+    //    countQuery = "select count(*) " + query.replace("?1","?2") + " AND s.id=?1"),
+    //    nativeQuery=true)
+    Optional<Shipment> findOneByIdAndInvoiceOrderCustomerUserLogin(Long id, String login);
 }

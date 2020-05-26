@@ -72,7 +72,7 @@ public class ShipmentService {
         {
             return shipmentRepository.findById(id);
         } else
-            return shipmentRepository.findOneByIdAndCustomerUserLogin(
+            return shipmentRepository.findOneByIdAndInvoiceOrderCustomerUserLogin(
                 id,
                 SecurityUtils.getCurrentUserLogin().get()
             );
