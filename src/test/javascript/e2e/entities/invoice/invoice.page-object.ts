@@ -68,10 +68,7 @@ export class InvoiceUpdatePage {
   }
 
   async statusSelectLastOption(): Promise<void> {
-    await this.statusSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.statusSelect.all(by.tagName('option')).last().click();
   }
 
   async setPaymentMethodSelect(paymentMethod: string): Promise<void> {
@@ -83,10 +80,7 @@ export class InvoiceUpdatePage {
   }
 
   async paymentMethodSelectLastOption(): Promise<void> {
-    await this.paymentMethodSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.paymentMethodSelect.all(by.tagName('option')).last().click();
   }
 
   async setPaymentDateInput(paymentDate: string): Promise<void> {
@@ -114,10 +108,7 @@ export class InvoiceUpdatePage {
   }
 
   async orderSelectLastOption(): Promise<void> {
-    await this.orderSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.orderSelect.all(by.tagName('option')).last().click();
   }
 
   async orderSelectOption(option: string): Promise<void> {

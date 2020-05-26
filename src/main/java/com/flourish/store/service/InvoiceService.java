@@ -50,6 +50,7 @@ public class InvoiceService {
         return invoiceRepository.findAll(pageable);
     }
 
+
     /**
      * Get one invoice by id.
      *
@@ -69,6 +70,7 @@ public class InvoiceService {
      */
     public void delete(Long id) {
         log.debug("Request to delete Invoice : {}", id);
+
         invoiceRepository.deleteById(id);
     }
 }

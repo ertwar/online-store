@@ -50,6 +50,7 @@ public class CustomerService {
         return customerRepository.findAll(pageable);
     }
 
+
     /**
      * Get one customer by id.
      *
@@ -69,6 +70,7 @@ public class CustomerService {
      */
     public void delete(Long id) {
         log.debug("Request to delete Customer : {}", id);
+
         customerRepository.deleteById(id);
     }
 }

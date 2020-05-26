@@ -14,7 +14,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -38,7 +38,7 @@ describe('Service Tests', () => {
       it('should create a OrderItem', () => {
         const returnedFromService = Object.assign(
           {
-            id: 0
+            id: 0,
           },
           elemDefault
         );
@@ -57,7 +57,7 @@ describe('Service Tests', () => {
           {
             quantity: 1,
             totalPrice: 1,
-            status: 'BBBBBB'
+            status: 'BBBBBB',
           },
           elemDefault
         );
@@ -76,7 +76,7 @@ describe('Service Tests', () => {
           {
             quantity: 1,
             totalPrice: 1,
-            status: 'BBBBBB'
+            status: 'BBBBBB',
           },
           elemDefault
         );

@@ -40,49 +40,49 @@ export const invoiceRoute: Routes = [
     path: '',
     component: InvoiceComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams
+      pagingParams: JhiResolvePagingParams,
     },
     data: {
       authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'storeApp.invoice.home.title'
+      pageTitle: 'storeApp.invoice.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: InvoiceDetailComponent,
     resolve: {
-      invoice: InvoiceResolve
+      invoice: InvoiceResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.invoice.home.title'
+      pageTitle: 'storeApp.invoice.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: InvoiceUpdateComponent,
     resolve: {
-      invoice: InvoiceResolve
+      invoice: InvoiceResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.invoice.home.title'
+      pageTitle: 'storeApp.invoice.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: InvoiceUpdateComponent,
     resolve: {
-      invoice: InvoiceResolve
+      invoice: InvoiceResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.invoice.home.title'
+      pageTitle: 'storeApp.invoice.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

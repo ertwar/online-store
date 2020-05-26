@@ -27,7 +27,6 @@ import com.flourish.store.domain.enumeration.Gender;
  * Integration tests for the {@link CustomerResource} REST controller.
  */
 @SpringBootTest(classes = StoreApp.class)
-
 @AutoConfigureMockMvc
 @WithMockUser
 public class CustomerResourceIT {
@@ -121,7 +120,6 @@ public class CustomerResourceIT {
     @Transactional
     public void createCustomer() throws Exception {
         int databaseSizeBeforeCreate = customerRepository.findAll().size();
-
         // Create the Customer
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
@@ -172,6 +170,7 @@ public class CustomerResourceIT {
 
         // Create the Customer, which fails.
 
+
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(customer)))
@@ -189,6 +188,7 @@ public class CustomerResourceIT {
         customer.setLastName(null);
 
         // Create the Customer, which fails.
+
 
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
@@ -208,6 +208,7 @@ public class CustomerResourceIT {
 
         // Create the Customer, which fails.
 
+
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(customer)))
@@ -225,6 +226,7 @@ public class CustomerResourceIT {
         customer.setEmail(null);
 
         // Create the Customer, which fails.
+
 
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
@@ -244,6 +246,7 @@ public class CustomerResourceIT {
 
         // Create the Customer, which fails.
 
+
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(customer)))
@@ -261,6 +264,7 @@ public class CustomerResourceIT {
         customer.setAddressLine1(null);
 
         // Create the Customer, which fails.
+
 
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
@@ -280,6 +284,7 @@ public class CustomerResourceIT {
 
         // Create the Customer, which fails.
 
+
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(customer)))
@@ -297,6 +302,7 @@ public class CustomerResourceIT {
         customer.setCountry(null);
 
         // Create the Customer, which fails.
+
 
         restCustomerMockMvc.perform(post("/api/customers")
             .contentType(MediaType.APPLICATION_JSON)
@@ -350,7 +356,6 @@ public class CustomerResourceIT {
             .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
             .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY));
     }
-
     @Test
     @Transactional
     public void getNonExistingCustomer() throws Exception {
@@ -406,8 +411,6 @@ public class CustomerResourceIT {
     @Transactional
     public void updateNonExistingCustomer() throws Exception {
         int databaseSizeBeforeUpdate = customerRepository.findAll().size();
-
-        // Create the Customer
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restCustomerMockMvc.perform(put("/api/customers")

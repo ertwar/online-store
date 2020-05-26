@@ -6,7 +6,7 @@ import { IShipment } from 'app/shared/model/shipment.model';
 import { ShipmentService } from './shipment.service';
 
 @Component({
-  templateUrl: './shipment-delete-dialog.component.html'
+  templateUrl: './shipment-delete-dialog.component.html',
 })
 export class ShipmentDeleteDialogComponent {
   shipment?: IShipment;

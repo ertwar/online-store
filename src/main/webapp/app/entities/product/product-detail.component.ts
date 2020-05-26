@@ -6,7 +6,7 @@ import { IProduct } from 'app/shared/model/product.model';
 
 @Component({
   selector: 'jhi-product-detail',
-  templateUrl: './product-detail.component.html'
+  templateUrl: './product-detail.component.html',
 })
 export class ProductDetailComponent implements OnInit {
   product: IProduct | null = null;
@@ -21,7 +21,7 @@ export class ProductDetailComponent implements OnInit {
     return this.dataUtils.byteSize(base64String);
   }
 
-  openFile(contentType: string, base64String: string): void {
+  openFile(contentType = '', base64String: string): void {
     this.dataUtils.openFile(contentType, base64String);
   }
 

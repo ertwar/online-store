@@ -111,6 +111,7 @@ public class ProductCategoryResource {
     @DeleteMapping("/product-categories/{id}")
     public ResponseEntity<Void> deleteProductCategory(@PathVariable Long id) {
         log.debug("REST request to delete ProductCategory : {}", id);
+
         productCategoryService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

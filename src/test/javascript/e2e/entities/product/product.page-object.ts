@@ -74,10 +74,7 @@ export class ProductUpdatePage {
   }
 
   async sizeSelectLastOption(): Promise<void> {
-    await this.sizeSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.sizeSelect.all(by.tagName('option')).last().click();
   }
 
   async setImageInput(image: string): Promise<void> {
@@ -89,10 +86,7 @@ export class ProductUpdatePage {
   }
 
   async productCategorySelectLastOption(): Promise<void> {
-    await this.productCategorySelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.productCategorySelect.all(by.tagName('option')).last().click();
   }
 
   async productCategorySelectOption(option: string): Promise<void> {

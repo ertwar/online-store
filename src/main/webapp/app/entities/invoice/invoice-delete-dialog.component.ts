@@ -6,7 +6,7 @@ import { IInvoice } from 'app/shared/model/invoice.model';
 import { InvoiceService } from './invoice.service';
 
 @Component({
-  templateUrl: './invoice-delete-dialog.component.html'
+  templateUrl: './invoice-delete-dialog.component.html',
 })
 export class InvoiceDeleteDialogComponent {
   invoice?: IInvoice;

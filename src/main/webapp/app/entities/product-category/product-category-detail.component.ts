@@ -5,7 +5,7 @@ import { IProductCategory } from 'app/shared/model/product-category.model';
 
 @Component({
   selector: 'jhi-product-category-detail',
-  templateUrl: './product-category-detail.component.html'
+  templateUrl: './product-category-detail.component.html',
 })
 export class ProductCategoryDetailComponent implements OnInit {
   productCategory: IProductCategory | null = null;

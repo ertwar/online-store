@@ -4,7 +4,7 @@
       "packageName": "com.flourish.store",
       "nativeLanguage": "en"
     },
-    "jhipsterVersion": "6.8.0",
+    "jhipsterVersion": "6.9.0",
     "applicationType": "monolith",
     "baseName": "store",
     "packageName": "com.flourish.store",

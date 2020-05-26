@@ -50,7 +50,7 @@ export class ShipmentService {
 
   protected convertDateFromClient(shipment: IShipment): IShipment {
     const copy: IShipment = Object.assign({}, shipment, {
-      date: shipment.date && shipment.date.isValid() ? shipment.date.toJSON() : undefined
+      date: shipment.date && shipment.date.isValid() ? shipment.date.toJSON() : undefined,
     });
     return copy;
   }

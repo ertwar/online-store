@@ -10,7 +10,7 @@ import { ProductCategoryService } from './product-category.service';
 
 @Component({
   selector: 'jhi-product-category-update',
-  templateUrl: './product-category-update.component.html'
+  templateUrl: './product-category-update.component.html',
 })
 export class ProductCategoryUpdateComponent implements OnInit {
   isSaving = false;
@@ -18,7 +18,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     name: [null, [Validators.required]],
-    description: []
+    description: [],
   });
 
   constructor(
@@ -37,7 +37,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: productCategory.id,
       name: productCategory.name,
-      description: productCategory.description
+      description: productCategory.description,
     });
   }
 
@@ -60,7 +60,7 @@ export class ProductCategoryUpdateComponent implements OnInit {
       ...new ProductCategory(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
-      description: this.editForm.get(['description'])!.value
+      description: this.editForm.get(['description'])!.value,
     };
   }
 

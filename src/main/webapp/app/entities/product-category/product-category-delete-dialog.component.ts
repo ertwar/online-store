@@ -6,7 +6,7 @@ import { IProductCategory } from 'app/shared/model/product-category.model';
 import { ProductCategoryService } from './product-category.service';
 
 @Component({
-  templateUrl: './product-category-delete-dialog.component.html'
+  templateUrl: './product-category-delete-dialog.component.html',
 })
 export class ProductCategoryDeleteDialogComponent {
   productCategory?: IProductCategory;

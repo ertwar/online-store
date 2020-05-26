@@ -14,8 +14,8 @@ import { productCategoryRoute } from './product-category.route';
     ProductCategoryComponent,
     ProductCategoryDetailComponent,
     ProductCategoryUpdateComponent,
-    ProductCategoryDeleteDialogComponent
+    ProductCategoryDeleteDialogComponent,
   ],
-  entryComponents: [ProductCategoryDeleteDialogComponent]
+  entryComponents: [ProductCategoryDeleteDialogComponent],
 })
 export class StoreProductCategoryModule {}

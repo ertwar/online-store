@@ -11,6 +11,6 @@ import { shipmentRoute } from './shipment.route';
 @NgModule({
   imports: [StoreSharedModule, RouterModule.forChild(shipmentRoute)],
   declarations: [ShipmentComponent, ShipmentDetailComponent, ShipmentUpdateComponent, ShipmentDeleteDialogComponent],
-  entryComponents: [ShipmentDeleteDialogComponent]
+  entryComponents: [ShipmentDeleteDialogComponent],
 })
 export class StoreShipmentModule {}

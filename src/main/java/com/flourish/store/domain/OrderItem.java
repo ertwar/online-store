@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.math.BigDecimal;
 
 import com.flourish.store.domain.enumeration.OrderItemStatus;
@@ -40,15 +39,15 @@ public class OrderItem implements Serializable {
     private OrderItemStatus status;
 
     @ManyToOne
-    @JsonIgnoreProperties("orderItems")
+    @JsonIgnoreProperties(value = "orderItems", allowSetters = true)
     private Product product;
 
     @ManyToOne(optional = false)
     @NotNull
-    @JsonIgnoreProperties("orderItems")
+    @JsonIgnoreProperties(value = "orderItems", allowSetters = true)
     private ProductOrder order;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -121,7 +120,7 @@ public class OrderItem implements Serializable {
     public void setOrder(ProductOrder productOrder) {
         this.order = productOrder;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -139,6 +138,7 @@ public class OrderItem implements Serializable {
         return 31;
     }
 
+    // prettier-ignore
     @Override
     public String toString() {
         return "OrderItem{" +

@@ -10,7 +10,7 @@ import { ProductCategoryDeleteDialogComponent } from './product-category-delete-
 
 @Component({
   selector: 'jhi-product-category',
-  templateUrl: './product-category.component.html'
+  templateUrl: './product-category.component.html',
 })
 export class ProductCategoryComponent implements OnInit, OnDestroy {
   productCategories?: IProductCategory[];

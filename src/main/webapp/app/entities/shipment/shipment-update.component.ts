@@ -14,7 +14,7 @@ import { InvoiceService } from 'app/entities/invoice/invoice.service';
 
 @Component({
   selector: 'jhi-shipment-update',
-  templateUrl: './shipment-update.component.html'
+  templateUrl: './shipment-update.component.html',
 })
 export class ShipmentUpdateComponent implements OnInit {
   isSaving = false;
@@ -25,7 +25,7 @@ export class ShipmentUpdateComponent implements OnInit {
     trackingCode: [],
     date: [null, [Validators.required]],
     details: [],
-    invoice: [null, Validators.required]
+    invoice: [null, Validators.required],
   });
 
   constructor(
@@ -54,7 +54,7 @@ export class ShipmentUpdateComponent implements OnInit {
       trackingCode: shipment.trackingCode,
       date: shipment.date ? shipment.date.format(DATE_TIME_FORMAT) : null,
       details: shipment.details,
-      invoice: shipment.invoice
+      invoice: shipment.invoice,
     });
   }
 
@@ -79,7 +79,7 @@ export class ShipmentUpdateComponent implements OnInit {
       trackingCode: this.editForm.get(['trackingCode'])!.value,
       date: this.editForm.get(['date'])!.value ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
       details: this.editForm.get(['details'])!.value,
-      invoice: this.editForm.get(['invoice'])!.value
+      invoice: this.editForm.get(['invoice'])!.value,
     };
   }
 

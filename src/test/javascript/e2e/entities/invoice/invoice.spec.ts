@@ -4,7 +4,7 @@ import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 import {
   InvoiceComponentsPage,
   /* InvoiceDeleteDialog, */
-  InvoiceUpdatePage
+  InvoiceUpdatePage,
 } from './invoice.page-object';
 
 const expect = chai.expect;

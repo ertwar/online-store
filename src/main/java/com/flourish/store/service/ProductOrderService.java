@@ -50,6 +50,7 @@ public class ProductOrderService {
         return productOrderRepository.findAll(pageable);
     }
 
+
     /**
      * Get one productOrder by id.
      *
@@ -69,6 +70,7 @@ public class ProductOrderService {
      */
     public void delete(Long id) {
         log.debug("Request to delete ProductOrder : {}", id);
+
         productOrderRepository.deleteById(id);
     }
 }

@@ -5,7 +5,7 @@ import { IShipment } from 'app/shared/model/shipment.model';
 
 @Component({
   selector: 'jhi-shipment-detail',
-  templateUrl: './shipment-detail.component.html'
+  templateUrl: './shipment-detail.component.html',
 })
 export class ShipmentDetailComponent implements OnInit {
   shipment: IShipment | null = null;

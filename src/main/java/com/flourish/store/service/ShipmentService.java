@@ -50,6 +50,7 @@ public class ShipmentService {
         return shipmentRepository.findAll(pageable);
     }
 
+
     /**
      * Get one shipment by id.
      *
@@ -69,6 +70,7 @@ public class ShipmentService {
      */
     public void delete(Long id) {
         log.debug("Request to delete Shipment : {}", id);
+
         shipmentRepository.deleteById(id);
     }
 }

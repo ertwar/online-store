@@ -50,7 +50,7 @@ describe('Product e2e test', () => {
       productUpdatePage.setPriceInput('5'),
       productUpdatePage.sizeSelectLastOption(),
       productUpdatePage.setImageInput(absolutePath),
-      productUpdatePage.productCategorySelectLastOption()
+      productUpdatePage.productCategorySelectLastOption(),
     ]);
 
     expect(await productUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');

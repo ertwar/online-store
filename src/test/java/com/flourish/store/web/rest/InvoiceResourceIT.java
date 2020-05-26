@@ -32,7 +32,6 @@ import com.flourish.store.domain.enumeration.PaymentMethod;
  * Integration tests for the {@link InvoiceResource} REST controller.
  */
 @SpringBootTest(classes = StoreApp.class)
-
 @AutoConfigureMockMvc
 @WithMockUser
 public class InvoiceResourceIT {
@@ -136,7 +135,6 @@ public class InvoiceResourceIT {
     @Transactional
     public void createInvoice() throws Exception {
         int databaseSizeBeforeCreate = invoiceRepository.findAll().size();
-
         // Create the Invoice
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
@@ -185,6 +183,7 @@ public class InvoiceResourceIT {
 
         // Create the Invoice, which fails.
 
+
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(invoice)))
@@ -202,6 +201,7 @@ public class InvoiceResourceIT {
         invoice.setStatus(null);
 
         // Create the Invoice, which fails.
+
 
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
@@ -221,6 +221,7 @@ public class InvoiceResourceIT {
 
         // Create the Invoice, which fails.
 
+
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(invoice)))
@@ -238,6 +239,7 @@ public class InvoiceResourceIT {
         invoice.setPaymentDate(null);
 
         // Create the Invoice, which fails.
+
 
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
@@ -257,6 +259,7 @@ public class InvoiceResourceIT {
 
         // Create the Invoice, which fails.
 
+
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(invoice)))
@@ -274,6 +277,7 @@ public class InvoiceResourceIT {
         invoice.setCode(null);
 
         // Create the Invoice, which fails.
+
 
         restInvoiceMockMvc.perform(post("/api/invoices")
             .contentType(MediaType.APPLICATION_JSON)
@@ -323,7 +327,6 @@ public class InvoiceResourceIT {
             .andExpect(jsonPath("$.paymentAmount").value(DEFAULT_PAYMENT_AMOUNT.intValue()))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE));
     }
-
     @Test
     @Transactional
     public void getNonExistingInvoice() throws Exception {
@@ -375,8 +378,6 @@ public class InvoiceResourceIT {
     @Transactional
     public void updateNonExistingInvoice() throws Exception {
         int databaseSizeBeforeUpdate = invoiceRepository.findAll().size();
-
-        // Create the Invoice
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restInvoiceMockMvc.perform(put("/api/invoices")

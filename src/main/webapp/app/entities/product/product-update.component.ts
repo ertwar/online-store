@@ -14,7 +14,7 @@ import { ProductCategoryService } from 'app/entities/product-category/product-ca
 
 @Component({
   selector: 'jhi-product-update',
-  templateUrl: './product-update.component.html'
+  templateUrl: './product-update.component.html',
 })
 export class ProductUpdateComponent implements OnInit {
   isSaving = false;
@@ -28,7 +28,7 @@ export class ProductUpdateComponent implements OnInit {
     size: [null, [Validators.required]],
     image: [],
     imageContentType: [],
-    productCategory: []
+    productCategory: [],
   });
 
   constructor(
@@ -58,7 +58,7 @@ export class ProductUpdateComponent implements OnInit {
       size: product.size,
       image: product.image,
       imageContentType: product.imageContentType,
-      productCategory: product.productCategory
+      productCategory: product.productCategory,
     });
   }
 
@@ -81,7 +81,7 @@ export class ProductUpdateComponent implements OnInit {
   clearInputImage(field: string, fieldContentType: string, idInput: string): void {
     this.editForm.patchValue({
       [field]: null,
-      [fieldContentType]: null
+      [fieldContentType]: null,
     });
     if (this.elementRef && idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
       this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
@@ -112,7 +112,7 @@ export class ProductUpdateComponent implements OnInit {
       size: this.editForm.get(['size'])!.value,
       imageContentType: this.editForm.get(['imageContentType'])!.value,
       image: this.editForm.get(['image'])!.value,
-      productCategory: this.editForm.get(['productCategory'])!.value
+      productCategory: this.editForm.get(['productCategory'])!.value,
     };
   }
 

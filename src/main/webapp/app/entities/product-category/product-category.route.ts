@@ -40,44 +40,44 @@ export const productCategoryRoute: Routes = [
     component: ProductCategoryComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productCategory.home.title'
+      pageTitle: 'storeApp.productCategory.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: ProductCategoryDetailComponent,
     resolve: {
-      productCategory: ProductCategoryResolve
+      productCategory: ProductCategoryResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productCategory.home.title'
+      pageTitle: 'storeApp.productCategory.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: ProductCategoryUpdateComponent,
     resolve: {
-      productCategory: ProductCategoryResolve
+      productCategory: ProductCategoryResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productCategory.home.title'
+      pageTitle: 'storeApp.productCategory.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: ProductCategoryUpdateComponent,
     resolve: {
-      productCategory: ProductCategoryResolve
+      productCategory: ProductCategoryResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productCategory.home.title'
+      pageTitle: 'storeApp.productCategory.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

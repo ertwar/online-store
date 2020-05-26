@@ -64,10 +64,7 @@ export class ShipmentUpdatePage {
   }
 
   async invoiceSelectLastOption(): Promise<void> {
-    await this.invoiceSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.invoiceSelect.all(by.tagName('option')).last().click();
   }
 
   async invoiceSelectOption(option: string): Promise<void> {

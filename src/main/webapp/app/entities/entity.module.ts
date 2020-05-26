@@ -6,34 +6,34 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([
       {
         path: 'product',
-        loadChildren: () => import('./product/product.module').then(m => m.StoreProductModule)
+        loadChildren: () => import('./product/product.module').then(m => m.StoreProductModule),
       },
       {
         path: 'product-category',
-        loadChildren: () => import('./product-category/product-category.module').then(m => m.StoreProductCategoryModule)
+        loadChildren: () => import('./product-category/product-category.module').then(m => m.StoreProductCategoryModule),
       },
       {
         path: 'customer',
-        loadChildren: () => import('./customer/customer.module').then(m => m.StoreCustomerModule)
+        loadChildren: () => import('./customer/customer.module').then(m => m.StoreCustomerModule),
       },
       {
         path: 'product-order',
-        loadChildren: () => import('./product-order/product-order.module').then(m => m.StoreProductOrderModule)
+        loadChildren: () => import('./product-order/product-order.module').then(m => m.StoreProductOrderModule),
       },
       {
         path: 'order-item',
-        loadChildren: () => import('./order-item/order-item.module').then(m => m.StoreOrderItemModule)
+        loadChildren: () => import('./order-item/order-item.module').then(m => m.StoreOrderItemModule),
       },
       {
         path: 'invoice',
-        loadChildren: () => import('./invoice/invoice.module').then(m => m.StoreInvoiceModule)
+        loadChildren: () => import('./invoice/invoice.module').then(m => m.StoreInvoiceModule),
       },
       {
         path: 'shipment',
-        loadChildren: () => import('./shipment/shipment.module').then(m => m.StoreShipmentModule)
-      }
+        loadChildren: () => import('./shipment/shipment.module').then(m => m.StoreShipmentModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
-    ])
-  ]
+    ]),
+  ],
 })
 export class StoreEntityModule {}

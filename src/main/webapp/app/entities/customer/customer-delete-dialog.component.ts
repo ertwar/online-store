@@ -6,7 +6,7 @@ import { ICustomer } from 'app/shared/model/customer.model';
 import { CustomerService } from './customer.service';
 
 @Component({
-  templateUrl: './customer-delete-dialog.component.html'
+  templateUrl: './customer-delete-dialog.component.html',
 })
 export class CustomerDeleteDialogComponent {
   customer?: ICustomer;

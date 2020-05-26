@@ -11,6 +11,6 @@ import { productOrderRoute } from './product-order.route';
 @NgModule({
   imports: [StoreSharedModule, RouterModule.forChild(productOrderRoute)],
   declarations: [ProductOrderComponent, ProductOrderDetailComponent, ProductOrderUpdateComponent, ProductOrderDeleteDialogComponent],
-  entryComponents: [ProductOrderDeleteDialogComponent]
+  entryComponents: [ProductOrderDeleteDialogComponent],
 })
 export class StoreProductOrderModule {}

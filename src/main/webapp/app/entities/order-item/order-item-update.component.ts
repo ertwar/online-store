@@ -16,7 +16,7 @@ type SelectableEntity = IProduct | IProductOrder;
 
 @Component({
   selector: 'jhi-order-item-update',
-  templateUrl: './order-item-update.component.html'
+  templateUrl: './order-item-update.component.html',
 })
 export class OrderItemUpdateComponent implements OnInit {
   isSaving = false;
@@ -29,7 +29,7 @@ export class OrderItemUpdateComponent implements OnInit {
     totalPrice: [null, [Validators.required, Validators.min(0)]],
     status: [null, [Validators.required]],
     product: [],
-    order: [null, Validators.required]
+    order: [null, Validators.required],
   });
 
   constructor(
@@ -57,7 +57,7 @@ export class OrderItemUpdateComponent implements OnInit {
       totalPrice: orderItem.totalPrice,
       status: orderItem.status,
       product: orderItem.product,
-      order: orderItem.order
+      order: orderItem.order,
     });
   }
 
@@ -83,7 +83,7 @@ export class OrderItemUpdateComponent implements OnInit {
       totalPrice: this.editForm.get(['totalPrice'])!.value,
       status: this.editForm.get(['status'])!.value,
       product: this.editForm.get(['product'])!.value,
-      order: this.editForm.get(['order'])!.value
+      order: this.editForm.get(['order'])!.value,
     };
   }
 

@@ -4,7 +4,7 @@ import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 import {
   ProductOrderComponentsPage,
   /* ProductOrderDeleteDialog, */
-  ProductOrderUpdatePage
+  ProductOrderUpdatePage,
 } from './product-order.page-object';
 
 const expect = chai.expect;

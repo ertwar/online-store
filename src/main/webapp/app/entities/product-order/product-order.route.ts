@@ -40,49 +40,49 @@ export const productOrderRoute: Routes = [
     path: '',
     component: ProductOrderComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams
+      pagingParams: JhiResolvePagingParams,
     },
     data: {
       authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'storeApp.productOrder.home.title'
+      pageTitle: 'storeApp.productOrder.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: ProductOrderDetailComponent,
     resolve: {
-      productOrder: ProductOrderResolve
+      productOrder: ProductOrderResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productOrder.home.title'
+      pageTitle: 'storeApp.productOrder.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: ProductOrderUpdateComponent,
     resolve: {
-      productOrder: ProductOrderResolve
+      productOrder: ProductOrderResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productOrder.home.title'
+      pageTitle: 'storeApp.productOrder.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: ProductOrderUpdateComponent,
     resolve: {
-      productOrder: ProductOrderResolve
+      productOrder: ProductOrderResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.productOrder.home.title'
+      pageTitle: 'storeApp.productOrder.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

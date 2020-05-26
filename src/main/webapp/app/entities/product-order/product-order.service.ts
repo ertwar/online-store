@@ -50,7 +50,7 @@ export class ProductOrderService {
 
   protected convertDateFromClient(productOrder: IProductOrder): IProductOrder {
     const copy: IProductOrder = Object.assign({}, productOrder, {
-      placedDate: productOrder.placedDate && productOrder.placedDate.isValid() ? productOrder.placedDate.toJSON() : undefined
+      placedDate: productOrder.placedDate && productOrder.placedDate.isValid() ? productOrder.placedDate.toJSON() : undefined,
     });
     return copy;
   }

@@ -51,7 +51,7 @@ export class InvoiceService {
   protected convertDateFromClient(invoice: IInvoice): IInvoice {
     const copy: IInvoice = Object.assign({}, invoice, {
       date: invoice.date && invoice.date.isValid() ? invoice.date.toJSON() : undefined,
-      paymentDate: invoice.paymentDate && invoice.paymentDate.isValid() ? invoice.paymentDate.toJSON() : undefined
+      paymentDate: invoice.paymentDate && invoice.paymentDate.isValid() ? invoice.paymentDate.toJSON() : undefined,
     });
     return copy;
   }

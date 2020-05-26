@@ -12,7 +12,7 @@ import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-customer-update',
-  templateUrl: './customer-update.component.html'
+  templateUrl: './customer-update.component.html',
 })
 export class CustomerUpdateComponent implements OnInit {
   isSaving = false;
@@ -29,7 +29,7 @@ export class CustomerUpdateComponent implements OnInit {
     addressLine2: [],
     city: [null, [Validators.required]],
     country: [null, [Validators.required]],
-    user: []
+    user: [],
   });
 
   constructor(
@@ -59,7 +59,7 @@ export class CustomerUpdateComponent implements OnInit {
       addressLine2: customer.addressLine2,
       city: customer.city,
       country: customer.country,
-      user: customer.user
+      user: customer.user,
     });
   }
 
@@ -90,7 +90,7 @@ export class CustomerUpdateComponent implements OnInit {
       addressLine2: this.editForm.get(['addressLine2'])!.value,
       city: this.editForm.get(['city'])!.value,
       country: this.editForm.get(['country'])!.value,
-      user: this.editForm.get(['user'])!.value
+      user: this.editForm.get(['user'])!.value,
     };
   }
 

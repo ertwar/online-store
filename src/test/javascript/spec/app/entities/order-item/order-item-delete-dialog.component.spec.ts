@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [StoreTestModule],
-        declarations: [OrderItemDeleteDialogComponent]
+        declarations: [OrderItemDeleteDialogComponent],
       })
         .overrideTemplate(OrderItemDeleteDialogComponent, '')
         .compileComponents();

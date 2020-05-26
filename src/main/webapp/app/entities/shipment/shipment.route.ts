@@ -40,49 +40,49 @@ export const shipmentRoute: Routes = [
     path: '',
     component: ShipmentComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams
+      pagingParams: JhiResolvePagingParams,
     },
     data: {
       authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'storeApp.shipment.home.title'
+      pageTitle: 'storeApp.shipment.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: ShipmentDetailComponent,
     resolve: {
-      shipment: ShipmentResolve
+      shipment: ShipmentResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.shipment.home.title'
+      pageTitle: 'storeApp.shipment.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: ShipmentUpdateComponent,
     resolve: {
-      shipment: ShipmentResolve
+      shipment: ShipmentResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.shipment.home.title'
+      pageTitle: 'storeApp.shipment.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: ShipmentUpdateComponent,
     resolve: {
-      shipment: ShipmentResolve
+      shipment: ShipmentResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.shipment.home.title'
+      pageTitle: 'storeApp.shipment.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

@@ -18,7 +18,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -34,7 +34,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             date: currentDate.format(DATE_TIME_FORMAT),
-            paymentDate: currentDate.format(DATE_TIME_FORMAT)
+            paymentDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -51,7 +51,7 @@ describe('Service Tests', () => {
           {
             id: 0,
             date: currentDate.format(DATE_TIME_FORMAT),
-            paymentDate: currentDate.format(DATE_TIME_FORMAT)
+            paymentDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -59,7 +59,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             date: currentDate,
-            paymentDate: currentDate
+            paymentDate: currentDate,
           },
           returnedFromService
         );
@@ -80,7 +80,7 @@ describe('Service Tests', () => {
             paymentMethod: 'BBBBBB',
             paymentDate: currentDate.format(DATE_TIME_FORMAT),
             paymentAmount: 1,
-            code: 'BBBBBB'
+            code: 'BBBBBB',
           },
           elemDefault
         );
@@ -88,7 +88,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             date: currentDate,
-            paymentDate: currentDate
+            paymentDate: currentDate,
           },
           returnedFromService
         );
@@ -109,7 +109,7 @@ describe('Service Tests', () => {
             paymentMethod: 'BBBBBB',
             paymentDate: currentDate.format(DATE_TIME_FORMAT),
             paymentAmount: 1,
-            code: 'BBBBBB'
+            code: 'BBBBBB',
           },
           elemDefault
         );
@@ -117,7 +117,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             date: currentDate,
-            paymentDate: currentDate
+            paymentDate: currentDate,
           },
           returnedFromService
         );

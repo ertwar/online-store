@@ -56,10 +56,7 @@ export class ProductOrderUpdatePage {
   }
 
   async statusSelectLastOption(): Promise<void> {
-    await this.statusSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.statusSelect.all(by.tagName('option')).last().click();
   }
 
   async setCodeInput(code: string): Promise<void> {
@@ -71,10 +68,7 @@ export class ProductOrderUpdatePage {
   }
 
   async customerSelectLastOption(): Promise<void> {
-    await this.customerSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.customerSelect.all(by.tagName('option')).last().click();
   }
 
   async customerSelectOption(option: string): Promise<void> {

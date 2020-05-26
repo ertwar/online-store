@@ -16,7 +16,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [StoreTestModule],
-        declarations: [ProductCategoryComponent]
+        declarations: [ProductCategoryComponent],
       })
         .overrideTemplate(ProductCategoryComponent, '')
         .compileComponents();
@@ -33,7 +33,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new ProductCategory(123)],
-            headers
+            headers,
           })
         )
       );

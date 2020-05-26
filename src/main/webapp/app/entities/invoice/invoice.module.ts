@@ -11,6 +11,6 @@ import { invoiceRoute } from './invoice.route';
 @NgModule({
   imports: [StoreSharedModule, RouterModule.forChild(invoiceRoute)],
   declarations: [InvoiceComponent, InvoiceDetailComponent, InvoiceUpdateComponent, InvoiceDeleteDialogComponent],
-  entryComponents: [InvoiceDeleteDialogComponent]
+  entryComponents: [InvoiceDeleteDialogComponent],
 })
 export class StoreInvoiceModule {}
