@@ -140,8 +140,8 @@
                         </small>
                         <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
                             <button type="submit"
-                                    [routerLink]="['/','product', product.id, 'edit']"
-                                    replaceUrl="true"
+                                    [routerLink]="['/product', product?.id, 'edit']"
+
                                     queryParamsHandling="merge"
                                     class="btn btn-primary btn-sm">
                                 <span class="fa fa-pencil"></span>
