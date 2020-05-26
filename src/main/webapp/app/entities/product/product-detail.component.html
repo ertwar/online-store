@@ -27,7 +27,7 @@
                 <dt><span jhiTranslate="storeApp.product.image">Image</span></dt>
                 <dd>
                     <div *ngIf="product.image">
-                        <a (click)="openFile(product?.imageContentType!, product?.image)">
+                        <a (click)="openFile(product.imageContentType, product.image)">
                             <img [src]="'data:' + product.imageContentType + ';base64,' + product.image" style="max-width: 100%;" alt="product image"/>
                         </a>
                         {{ product.imageContentType }}, {{ byteSize(product.image) }}

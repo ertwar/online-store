@@ -48,6 +48,7 @@ public class ProductCategoryService {
         return productCategoryRepository.findAll();
     }
 
+
     /**
      * Get one productCategory by id.
      *
@@ -67,6 +68,7 @@ public class ProductCategoryService {
      */
     public void delete(Long id) {
         log.debug("Request to delete ProductCategory : {}", id);
+
         productCategoryRepository.deleteById(id);
     }
 }

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute, convertToParamMap, Data } from '@angular/router';
 
 import { StoreTestModule } from '../../../test.module';
 import { OrderItemComponent } from 'app/entities/order-item/order-item.component';
@@ -31,6 +31,16 @@ describe('Component Tests', () => {
                       page: 0
                     }
                   })
+              },
+              queryParamMap: {
+                subscribe: (fn: (value: Data) => void) =>
+                  fn(
+                    convertToParamMap({
+                      page: '1',
+                      size: '1',
+                      sort: 'id,desc'
+                    })
+                  )
               }
             }
           }

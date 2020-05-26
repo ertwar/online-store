@@ -3,7 +3,7 @@ import { DatePipe, registerLocaleData } from '@angular/common';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { CookieModule } from 'ngx-cookie';
+import { CookieService } from 'ngx-cookie-service';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgJhipsterModule, translatePartialLoader, missingTranslationHandler, JhiConfigService, JhiLanguageService } from 'ng-jhipster';
@@ -23,7 +23,6 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
 @NgModule({
   imports: [
     HttpClientModule,
-    CookieModule.forRoot(),
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-' }),
     NgJhipsterModule.forRoot({
       // set below to true to make alerts look like toast
@@ -47,6 +46,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
   ],
   providers: [
     Title,
+    CookieService,
     {
       provide: LOCALE_ID,
       useValue: 'en'

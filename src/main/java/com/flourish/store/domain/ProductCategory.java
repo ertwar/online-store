@@ -5,7 +5,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,7 +31,7 @@ public class ProductCategory implements Serializable {
     @OneToMany(mappedBy = "productCategory")
     private Set<Product> products = new HashSet<>();
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -91,7 +90,7 @@ public class ProductCategory implements Serializable {
     public void setProducts(Set<Product> products) {
         this.products = products;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -109,6 +108,7 @@ public class ProductCategory implements Serializable {
         return 31;
     }
 
+    // prettier-ignore
     @Override
     public String toString() {
         return "ProductCategory{" +

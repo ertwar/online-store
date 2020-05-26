@@ -29,7 +29,6 @@ import com.flourish.store.domain.enumeration.OrderItemStatus;
  * Integration tests for the {@link OrderItemResource} REST controller.
  */
 @SpringBootTest(classes = StoreApp.class)
-
 @AutoConfigureMockMvc
 @WithMockUser
 public class OrderItemResourceIT {
@@ -113,7 +112,6 @@ public class OrderItemResourceIT {
     @Transactional
     public void createOrderItem() throws Exception {
         int databaseSizeBeforeCreate = orderItemRepository.findAll().size();
-
         // Create the OrderItem
         restOrderItemMockMvc.perform(post("/api/order-items")
             .contentType(MediaType.APPLICATION_JSON)
@@ -158,6 +156,7 @@ public class OrderItemResourceIT {
 
         // Create the OrderItem, which fails.
 
+
         restOrderItemMockMvc.perform(post("/api/order-items")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(orderItem)))
@@ -176,6 +175,7 @@ public class OrderItemResourceIT {
 
         // Create the OrderItem, which fails.
 
+
         restOrderItemMockMvc.perform(post("/api/order-items")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(orderItem)))
@@ -193,6 +193,7 @@ public class OrderItemResourceIT {
         orderItem.setStatus(null);
 
         // Create the OrderItem, which fails.
+
 
         restOrderItemMockMvc.perform(post("/api/order-items")
             .contentType(MediaType.APPLICATION_JSON)
@@ -234,7 +235,6 @@ public class OrderItemResourceIT {
             .andExpect(jsonPath("$.totalPrice").value(DEFAULT_TOTAL_PRICE.intValue()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
-
     @Test
     @Transactional
     public void getNonExistingOrderItem() throws Exception {
@@ -278,8 +278,6 @@ public class OrderItemResourceIT {
     @Transactional
     public void updateNonExistingOrderItem() throws Exception {
         int databaseSizeBeforeUpdate = orderItemRepository.findAll().size();
-
-        // Create the OrderItem
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restOrderItemMockMvc.perform(put("/api/order-items")
