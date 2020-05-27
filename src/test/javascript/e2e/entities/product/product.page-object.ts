@@ -2,7 +2,7 @@ import { element, by, ElementFinder } from 'protractor';
 
 export class ProductComponentsPage {
   createButton = element(by.id('jh-create-entity'));
-  deleteButtons = element.all(by.css('jhi-product div table .btn-danger'));
+  deleteButtons = element.all(by.css('jhi-product div .btn-danger'));
   title = element.all(by.css('jhi-product div h2#page-heading span')).first();
   noResult = element(by.id('no-result'));
   entities = element(by.id('entities'));
@@ -74,10 +74,7 @@ export class ProductUpdatePage {
   }
 
   async sizeSelectLastOption(): Promise<void> {
-    await this.sizeSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.sizeSelect.all(by.tagName('option')).last().click();
   }
 
   async setImageInput(image: string): Promise<void> {
@@ -89,10 +86,7 @@ export class ProductUpdatePage {
   }
 
   async productCategorySelectLastOption(): Promise<void> {
-    await this.productCategorySelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.productCategorySelect.all(by.tagName('option')).last().click();
   }
 
   async productCategorySelectOption(option: string): Promise<void> {
