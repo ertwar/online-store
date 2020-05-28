@@ -38,6 +38,8 @@
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": ["en", "zh-cn"],
-    "blueprints": []
+    "blueprints": [],
+    "herokuAppName": "mighty-retreat-24621",
+    "herokuDeployType": "git"
   }
 }
