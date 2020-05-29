@@ -9,7 +9,7 @@ import { AuditsService } from './audits.service';
 
 @Component({
   selector: 'jhi-audit',
-  templateUrl: './audits.component.html'
+  templateUrl: './audits.component.html',
 })
 export class AuditsComponent implements OnInit {
   audits?: Audit[];
@@ -85,8 +85,8 @@ export class AuditsComponent implements OnInit {
       this.router.navigate(['/admin/audits'], {
         queryParams: {
           page: this.page,
-          sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
-        }
+          sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
+        },
       });
       this.loadData();
     }
@@ -116,7 +116,7 @@ export class AuditsComponent implements OnInit {
         size: this.itemsPerPage,
         sort: this.sort(),
         fromDate: this.fromDate,
-        toDate: this.toDate
+        toDate: this.toDate,
       })
       .subscribe((res: HttpResponse<Audit[]>) => this.onSuccess(res.body, res.headers));
   }

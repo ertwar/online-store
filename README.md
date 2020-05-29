@@ -1,18 +1,49 @@
 # store
 
-A friendly online store with products, customers, product orders, order items, shipments, and invoices
+This application was generated using JHipster 6.9.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.9.0](https://www.jhipster.tech/documentation-archive/v6.9.0).
+
+This is a "gateway" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
+
+This application is configured for Service Discovery and Configuration with the JHipster-Registry. On launch, it will refuse to start if it is not able to connect to the JHipster-Registry at [http://localhost:8761](http://localhost:8761). For more information, read our documentation on [Service Discovery and Configuration with the JHipster-Registry][].
 
 ## Development
 
-- Built with JHipster, gradle, and Jenkins CI/CD
+Before you can build this project, you must install and configure the following dependencies on your machine:
+
+1. [Node.js][]: We use Node to run a development web server and build the project.
+   Depending on your system, you can install Node either from source or as a pre-packaged bundle.
+
+After installing Node, you should be able to run the following command to install development tools.
+You will only need to run this command when dependencies change in [package.json](package.json).
+
+    npm install
+
+We use npm scripts and [Webpack][] as our build system.
+
+If you are using hazelcast as a cache, you will have to launch a cache server.
+To start your cache server, run:
+
+```
+docker-compose -f src/main/docker/hazelcast-management-center.yml up -d
+```
+
+Run the following commands in two separate terminals to create a blissful development experience where your browser
+auto-refreshes when files change on your hard drive.
+
+    ./gradlew -x webpack
+    npm start
+
+Npm is also used to manage CSS and JavaScript dependencies used in this application. You can upgrade dependencies by
+specifying a newer version in [package.json](package.json). You can also run `npm update` and `npm install` to manage dependencies.
+Add the `help` flag on any command to see how you can use it. For example, `npm help update`.
+
+The `npm run` command will list all of the scripts available to run for this project.
 
 ### PWA Support
 
-JHipster ships with PWA (Progressive Web App) support, and it's turned off by default.
-One of the main components of a PWA is a service worker.
+JHipster ships with PWA (Progressive Web App) support, and it's turned off by default. One of the main components of a PWA is a service worker.
 
-The service worker initialization code is commented out by default.
-To enable it, uncomment the following code in `src/main/webapp/index.html`:
+The service worker initialization code is commented out by default. To enable it, uncomment the following code in `src/main/webapp/index.html`:
 
 ```html
 <script>
@@ -24,8 +55,7 @@ To enable it, uncomment the following code in `src/main/webapp/index.html`:
 </script>
 ```
 
-Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker.
-It dynamically generates the `service-worker.js` file.
+Note: [Workbox](https://developers.google.com/web/tools/workbox/) powers JHipster's service worker. It dynamically generates the `service-worker.js` file.
 
 ### Managing dependencies
 
@@ -152,7 +182,9 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
 [jhipster 6.9.0 archive]: https://www.jhipster.tech/documentation-archive/v6.9.0
+[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.9.0/microservices-architecture/
 [using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.9.0/development/
+[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/documentation-archive/v6.9.0/microservices-architecture/#jhipster-registry
 [using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.9.0/docker-compose
 [using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.9.0/production/
 [running tests page]: https://www.jhipster.tech/documentation-archive/v6.9.0/running-tests/

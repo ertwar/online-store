@@ -15,7 +15,7 @@ import { UserManagementDeleteDialogComponent } from './user-management-delete-di
 
 @Component({
   selector: 'jhi-user-mgmt',
-  templateUrl: './user-management.component.html'
+  templateUrl: './user-management.component.html',
 })
 export class UserManagementComponent implements OnInit, OnDestroy {
   currentAccount: Account | null = null;
@@ -108,8 +108,8 @@ export class UserManagementComponent implements OnInit, OnDestroy {
       relativeTo: this.activatedRoute.parent,
       queryParams: {
         page: this.page,
-        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
-      }
+        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
+      },
     });
     this.loadAll();
   }
@@ -124,7 +124,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
       .query({
         page: this.page - 1,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
       })
       .subscribe((res: HttpResponse<User[]>) => this.onSuccess(res.body, res.headers));
   }

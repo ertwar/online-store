@@ -24,49 +24,49 @@ import { MockEventManager } from './helpers/mock-event-manager.service';
     JhiParseLinks,
     {
       provide: JhiLanguageService,
-      useClass: MockLanguageService
+      useClass: MockLanguageService,
     },
     {
       provide: JhiEventManager,
-      useClass: MockEventManager
+      useClass: MockEventManager,
     },
     {
       provide: NgbActiveModal,
-      useClass: MockActiveModal
+      useClass: MockActiveModal,
     },
     {
       provide: ActivatedRoute,
-      useValue: new MockActivatedRoute({ id: 123 })
+      useValue: new MockActivatedRoute({ id: 123 }),
     },
     {
       provide: Router,
-      useClass: MockRouter
+      useClass: MockRouter,
     },
     {
       provide: AccountService,
-      useClass: MockAccountService
+      useClass: MockAccountService,
     },
     {
       provide: LoginModalService,
-      useClass: MockLoginModalService
+      useClass: MockLoginModalService,
     },
     {
       provide: JhiAlertService,
-      useClass: MockAlertService
+      useClass: MockAlertService,
     },
     {
       provide: NgbModal,
-      useValue: null
+      useValue: null,
     },
     {
       provide: SessionStorageService,
-      useValue: null
+      useValue: null,
     },
     {
       provide: LocalStorageService,
-      useValue: null
-    }
+      useValue: null,
+    },
   ],
-  imports: [HttpClientTestingModule]
+  imports: [HttpClientTestingModule],
 })
 export class StoreTestModule {}

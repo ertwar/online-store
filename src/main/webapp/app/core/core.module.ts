@@ -29,51 +29,51 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
       alertAsToast: false,
       alertTimeout: 5000,
       i18nEnabled: true,
-      defaultI18nLang: 'en'
+      defaultI18nLang: 'en',
     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: translatePartialLoader,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
         useFactory: missingTranslationHandler,
-        deps: [JhiConfigService]
-      }
-    })
+        deps: [JhiConfigService],
+      },
+    }),
   ],
   providers: [
     Title,
     CookieService,
     {
       provide: LOCALE_ID,
-      useValue: 'en'
+      useValue: 'en',
     },
     { provide: NgbDateAdapter, useClass: NgbDateMomentAdapter },
     DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthExpiredInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorHandlerInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: NotificationInterceptor,
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class StoreCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
