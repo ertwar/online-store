@@ -31,6 +31,7 @@ export class ProductOrderUpdatePage {
 
   placedDateInput = element(by.id('field_placedDate'));
   statusSelect = element(by.id('field_status'));
+  invoiceIdInput = element(by.id('field_invoiceId'));
   codeInput = element(by.id('field_code'));
 
   customerSelect = element(by.id('field_customer'));
@@ -56,10 +57,15 @@ export class ProductOrderUpdatePage {
   }
 
   async statusSelectLastOption(): Promise<void> {
-    await this.statusSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.statusSelect.all(by.tagName('option')).last().click();
+  }
+
+  async setInvoiceIdInput(invoiceId: string): Promise<void> {
+    await this.invoiceIdInput.sendKeys(invoiceId);
+  }
+
+  async getInvoiceIdInput(): Promise<string> {
+    return await this.invoiceIdInput.getAttribute('value');
   }
 
   async setCodeInput(code: string): Promise<void> {
@@ -71,10 +77,7 @@ export class ProductOrderUpdatePage {
   }
 
   async customerSelectLastOption(): Promise<void> {
-    await this.customerSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.customerSelect.all(by.tagName('option')).last().click();
   }
 
   async customerSelectOption(option: string): Promise<void> {

@@ -2,6 +2,7 @@ package com.flourish.store.web.rest;
 
 import com.flourish.store.StoreApp;
 import com.flourish.store.domain.OrderItem;
+import com.flourish.store.domain.Product;
 import com.flourish.store.domain.ProductOrder;
 import com.flourish.store.repository.OrderItemRepository;
 import com.flourish.store.service.OrderItemService;
@@ -30,8 +31,7 @@ import com.flourish.store.domain.enumeration.OrderItemStatus;
  */
 @SpringBootTest(classes = StoreApp.class)
 @AutoConfigureMockMvc
-@WithMockUser(username="admin", authorities={"ROLE_ADMIN"},
-    password = "admin")
+@WithMockUser
 public class OrderItemResourceIT {
 
     private static final Integer DEFAULT_QUANTITY = 0;
@@ -69,6 +69,16 @@ public class OrderItemResourceIT {
             .totalPrice(DEFAULT_TOTAL_PRICE)
             .status(DEFAULT_STATUS);
         // Add required entity
+        Product product;
+        if (TestUtil.findAll(em, Product.class).isEmpty()) {
+            product = ProductResourceIT.createEntity(em);
+            em.persist(product);
+            em.flush();
+        } else {
+            product = TestUtil.findAll(em, Product.class).get(0);
+        }
+        orderItem.setProduct(product);
+        // Add required entity
         ProductOrder productOrder;
         if (TestUtil.findAll(em, ProductOrder.class).isEmpty()) {
             productOrder = ProductOrderResourceIT.createEntity(em);
@@ -91,6 +101,16 @@ public class OrderItemResourceIT {
             .quantity(UPDATED_QUANTITY)
             .totalPrice(UPDATED_TOTAL_PRICE)
             .status(UPDATED_STATUS);
+        // Add required entity
+        Product product;
+        if (TestUtil.findAll(em, Product.class).isEmpty()) {
+            product = ProductResourceIT.createUpdatedEntity(em);
+            em.persist(product);
+            em.flush();
+        } else {
+            product = TestUtil.findAll(em, Product.class).get(0);
+        }
+        orderItem.setProduct(product);
         // Add required entity
         ProductOrder productOrder;
         if (TestUtil.findAll(em, ProductOrder.class).isEmpty()) {
@@ -220,7 +240,7 @@ public class OrderItemResourceIT {
             .andExpect(jsonPath("$.[*].totalPrice").value(hasItem(DEFAULT_TOTAL_PRICE.intValue())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
-
+    
     @Test
     @Transactional
     public void getOrderItem() throws Exception {

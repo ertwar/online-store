@@ -3,5 +3,5 @@ export const enum OrderStatus {
 
   PENDING = 'PENDING',
 
-  CANCELLED = 'CANCELLED'
+  CANCELLED = 'CANCELLED',
 }

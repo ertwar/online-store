@@ -5,7 +5,7 @@ import { IOrderItem } from 'app/shared/model/order-item.model';
 
 @Component({
   selector: 'jhi-order-item-detail',
-  templateUrl: './order-item-detail.component.html'
+  templateUrl: './order-item-detail.component.html',
 })
 export class OrderItemDetailComponent implements OnInit {
   orderItem: IOrderItem | null = null;

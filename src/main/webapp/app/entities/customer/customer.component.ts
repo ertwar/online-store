@@ -13,7 +13,7 @@ import { CustomerDeleteDialogComponent } from './customer-delete-dialog.componen
 
 @Component({
   selector: 'jhi-customer',
-  templateUrl: './customer.component.html'
+  templateUrl: './customer.component.html',
 })
 export class CustomerComponent implements OnInit, OnDestroy {
   customers?: ICustomer[];
@@ -40,7 +40,7 @@ export class CustomerComponent implements OnInit, OnDestroy {
       .query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
       })
       .subscribe(
         (res: HttpResponse<ICustomer[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
@@ -113,8 +113,8 @@ export class CustomerComponent implements OnInit, OnDestroy {
       queryParams: {
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
-      }
+        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
+      },
     });
     this.customers = data || [];
   }

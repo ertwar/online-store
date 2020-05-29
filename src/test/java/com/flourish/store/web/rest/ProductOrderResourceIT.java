@@ -31,8 +31,7 @@ import com.flourish.store.domain.enumeration.OrderStatus;
  */
 @SpringBootTest(classes = StoreApp.class)
 @AutoConfigureMockMvc
-@WithMockUser(username="admin", authorities={"ROLE_ADMIN"},
-    password = "admin")
+@WithMockUser
 public class ProductOrderResourceIT {
 
     private static final Instant DEFAULT_PLACED_DATE = Instant.ofEpochMilli(0L);
@@ -40,6 +39,9 @@ public class ProductOrderResourceIT {
 
     private static final OrderStatus DEFAULT_STATUS = OrderStatus.COMPLETED;
     private static final OrderStatus UPDATED_STATUS = OrderStatus.PENDING;
+
+    private static final Long DEFAULT_INVOICE_ID = 1L;
+    private static final Long UPDATED_INVOICE_ID = 2L;
 
     private static final String DEFAULT_CODE = "AAAAAAAAAA";
     private static final String UPDATED_CODE = "BBBBBBBBBB";
@@ -68,6 +70,7 @@ public class ProductOrderResourceIT {
         ProductOrder productOrder = new ProductOrder()
             .placedDate(DEFAULT_PLACED_DATE)
             .status(DEFAULT_STATUS)
+            .invoiceId(DEFAULT_INVOICE_ID)
             .code(DEFAULT_CODE);
         // Add required entity
         Customer customer;
@@ -91,6 +94,7 @@ public class ProductOrderResourceIT {
         ProductOrder productOrder = new ProductOrder()
             .placedDate(UPDATED_PLACED_DATE)
             .status(UPDATED_STATUS)
+            .invoiceId(UPDATED_INVOICE_ID)
             .code(UPDATED_CODE);
         // Add required entity
         Customer customer;
@@ -126,6 +130,7 @@ public class ProductOrderResourceIT {
         ProductOrder testProductOrder = productOrderList.get(productOrderList.size() - 1);
         assertThat(testProductOrder.getPlacedDate()).isEqualTo(DEFAULT_PLACED_DATE);
         assertThat(testProductOrder.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testProductOrder.getInvoiceId()).isEqualTo(DEFAULT_INVOICE_ID);
         assertThat(testProductOrder.getCode()).isEqualTo(DEFAULT_CODE);
     }
 
@@ -219,9 +224,10 @@ public class ProductOrderResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(productOrder.getId().intValue())))
             .andExpect(jsonPath("$.[*].placedDate").value(hasItem(DEFAULT_PLACED_DATE.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].invoiceId").value(hasItem(DEFAULT_INVOICE_ID.intValue())))
             .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)));
     }
-
+    
     @Test
     @Transactional
     public void getProductOrder() throws Exception {
@@ -235,6 +241,7 @@ public class ProductOrderResourceIT {
             .andExpect(jsonPath("$.id").value(productOrder.getId().intValue()))
             .andExpect(jsonPath("$.placedDate").value(DEFAULT_PLACED_DATE.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.invoiceId").value(DEFAULT_INVOICE_ID.intValue()))
             .andExpect(jsonPath("$.code").value(DEFAULT_CODE));
     }
     @Test
@@ -260,6 +267,7 @@ public class ProductOrderResourceIT {
         updatedProductOrder
             .placedDate(UPDATED_PLACED_DATE)
             .status(UPDATED_STATUS)
+            .invoiceId(UPDATED_INVOICE_ID)
             .code(UPDATED_CODE);
 
         restProductOrderMockMvc.perform(put("/api/product-orders")
@@ -273,6 +281,7 @@ public class ProductOrderResourceIT {
         ProductOrder testProductOrder = productOrderList.get(productOrderList.size() - 1);
         assertThat(testProductOrder.getPlacedDate()).isEqualTo(UPDATED_PLACED_DATE);
         assertThat(testProductOrder.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testProductOrder.getInvoiceId()).isEqualTo(UPDATED_INVOICE_ID);
         assertThat(testProductOrder.getCode()).isEqualTo(UPDATED_CODE);
     }
 

@@ -1,11 +1,11 @@
-id;placed_date;status;code;customer_id
-1;2020-05-15T07:57:50;COMPLETED;Georgia calculate withdrawal;1
-2;2020-05-14T18:54:20;COMPLETED;compress Steel out-of-the-box;2
-3;2020-05-14T20:25:32;PENDING;Concrete;3
-4;2020-05-15T09:51:27;CANCELLED;Investment Account;4
-5;2020-05-14T21:08:17;PENDING;United States of America;5
-6;2020-05-15T11:20:21;CANCELLED;IB Industrial Credit Card Account;6
-7;2020-05-15T14:26:46;CANCELLED;Cotton Egyptian Pound;7
-8;2020-05-14T23:22:50;COMPLETED;Home Loan Account;8
-9;2020-05-15T08:17:06;COMPLETED;Human;9
-10;2020-05-14T18:25:44;CANCELLED;payment;10
+id;placed_date;status;invoice_id;code;customer_id
+1;2020-05-15T07:57:50;COMPLETED;94428;ivory payment;1
+2;2020-05-15T06:41:40;CANCELLED;74608;Steel;2
+3;2020-05-15T07:54:18;PENDING;1093;Expanded;3
+4;2020-05-14T21:54:09;PENDING;97012;Investment Account;4
+5;2020-05-14T21:08:17;PENDING;1620;Implementation communities;5
+6;2020-05-15T12:26:00;CANCELLED;88231;Industrial Credit Card Account Small Concrete Cheese;6
+7;2020-05-14T20:05:31;CANCELLED;52097;Implemented;7
+8;2020-05-15T04:36:48;PENDING;33047;input Handmade Metal Table;8
+9;2020-05-15T12:00:45;CANCELLED;99475;Credit Card Account success Tasty;9
+10;2020-05-15T13:05:50;COMPLETED;50811;mission-critical Program collaborative;10

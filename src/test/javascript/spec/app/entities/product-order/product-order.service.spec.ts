@@ -17,7 +17,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -25,14 +25,14 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new ProductOrder(0, currentDate, OrderStatus.COMPLETED, 'AAAAAAA');
+      elemDefault = new ProductOrder(0, currentDate, OrderStatus.COMPLETED, 0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
       it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
-            placedDate: currentDate.format(DATE_TIME_FORMAT)
+            placedDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -48,14 +48,14 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
-            placedDate: currentDate.format(DATE_TIME_FORMAT)
+            placedDate: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            placedDate: currentDate
+            placedDate: currentDate,
           },
           returnedFromService
         );
@@ -72,14 +72,15 @@ describe('Service Tests', () => {
           {
             placedDate: currentDate.format(DATE_TIME_FORMAT),
             status: 'BBBBBB',
-            code: 'BBBBBB'
+            invoiceId: 1,
+            code: 'BBBBBB',
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            placedDate: currentDate
+            placedDate: currentDate,
           },
           returnedFromService
         );
@@ -96,14 +97,15 @@ describe('Service Tests', () => {
           {
             placedDate: currentDate.format(DATE_TIME_FORMAT),
             status: 'BBBBBB',
-            code: 'BBBBBB'
+            invoiceId: 1,
+            code: 'BBBBBB',
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            placedDate: currentDate
+            placedDate: currentDate,
           },
           returnedFromService
         );

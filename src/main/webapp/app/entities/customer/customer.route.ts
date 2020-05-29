@@ -40,49 +40,49 @@ export const customerRoute: Routes = [
     path: '',
     component: CustomerComponent,
     resolve: {
-      pagingParams: JhiResolvePagingParams
+      pagingParams: JhiResolvePagingParams,
     },
     data: {
       authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'storeApp.customer.home.title'
+      pageTitle: 'storeApp.customer.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: CustomerDetailComponent,
     resolve: {
-      customer: CustomerResolve
+      customer: CustomerResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.customer.home.title'
+      pageTitle: 'storeApp.customer.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: CustomerUpdateComponent,
     resolve: {
-      customer: CustomerResolve
+      customer: CustomerResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.customer.home.title'
+      pageTitle: 'storeApp.customer.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: CustomerUpdateComponent,
     resolve: {
-      customer: CustomerResolve
+      customer: CustomerResolve,
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'storeApp.customer.home.title'
+      pageTitle: 'storeApp.customer.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

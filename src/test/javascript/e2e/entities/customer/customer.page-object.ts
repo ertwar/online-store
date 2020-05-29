@@ -70,10 +70,7 @@ export class CustomerUpdatePage {
   }
 
   async genderSelectLastOption(): Promise<void> {
-    await this.genderSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.genderSelect.all(by.tagName('option')).last().click();
   }
 
   async setEmailInput(email: string): Promise<void> {
@@ -125,10 +122,7 @@ export class CustomerUpdatePage {
   }
 
   async userSelectLastOption(): Promise<void> {
-    await this.userSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.userSelect.all(by.tagName('option')).last().click();
   }
 
   async userSelectOption(option: string): Promise<void> {

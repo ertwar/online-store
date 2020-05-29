@@ -65,17 +65,11 @@ export class OrderItemUpdatePage {
   }
 
   async statusSelectLastOption(): Promise<void> {
-    await this.statusSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.statusSelect.all(by.tagName('option')).last().click();
   }
 
   async productSelectLastOption(): Promise<void> {
-    await this.productSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.productSelect.all(by.tagName('option')).last().click();
   }
 
   async productSelectOption(option: string): Promise<void> {
@@ -91,10 +85,7 @@ export class OrderItemUpdatePage {
   }
 
   async orderSelectLastOption(): Promise<void> {
-    await this.orderSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.orderSelect.all(by.tagName('option')).last().click();
   }
 
   async orderSelectOption(option: string): Promise<void> {

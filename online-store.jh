@@ -1,44 +1,3 @@
-application {
-  config {
-    applicationType monolith
-    authenticationType jwt
-    baseName store
-    buildTool gradle
-    cacheProvider hazelcast
-    clientFramework angularX
-    clientPackageManager npm
-    clientTheme none
-    creationTimestamp 1589392964408
-    databaseType sql
-    devDatabaseType h2Disk
-    dtoSuffix DTO
-    embeddableLaunchScript false
-    enableHibernateCache false
-    enableSwaggerCodegen false
-    enableTranslation true
-    jhiPrefix jhi
-    jhipsterVersion "6.8.0"
-    jwtSecretKey "ZWVmMGZhZWU1NWVlNzM0MDZiZTk2ZDVlMzFkNTFhY2E2ODc3NmFmMWVjMjQyMjc4NGU2MzRlYjdhZmI1ZjQ1ZjMwY2MwZjRhNGYzNDc5OGYzMThlNGFjNWUzMzBiYjUwZjdhMjE3MGZhYTFjNTljMzMwNDY4Nzg4NzA5NDIyMzQ="
-    languages [en, zh-cn]
-    messageBroker false
-    nativeLanguage en
-    otherModules []
-    packageName com.flourish.store
-    prodDatabaseType mysql
-    searchEngine false
-    serverPort 8080
-    serviceDiscoveryType false
-    skipClient false
-    skipServer false
-    skipUserManagement false
-    testFrameworks [protractor]
-    useSass true
-    websocket spring-websocket
-  }
-
-  entities Customer, Invoice, OrderItem, Product, ProductCategory, ProductOrder, Shipment
-}
-
 entity Customer {
   firstName String required,
   lastName String required,
@@ -49,15 +8,6 @@ entity Customer {
   addressLine2 String,
   city String required,
   country String required
-}
-entity Invoice {
-  date Instant required,
-  details String,
-  status InvoiceStatus required,
-  paymentMethod PaymentMethod required,
-  paymentDate Instant required,
-  paymentAmount BigDecimal required,
-  code String required
 }
 entity OrderItem {
   quantity Integer required min(0),
@@ -81,27 +31,13 @@ entity ProductCategory {
 entity ProductOrder {
   placedDate Instant required,
   status OrderStatus required,
+  invoiceId Long,
   code String required
-}
-entity Shipment {
-  trackingCode String,
-  date Instant required,
-  details String
 }
 enum Gender {
   MALE,
   FEMALE,
   OTHER
-}
-enum InvoiceStatus {
-  PAID,
-  ISSUED,
-  CANCELLED
-}
-enum PaymentMethod {
-  CREDIT_CARD,
-  CASH_ON_DELIVERY,
-  PAYPAL
 }
 enum OrderItemStatus {
   AVAILABLE,
@@ -125,15 +61,14 @@ relationship OneToOne {
   Customer{user(login) required} to User
 }
 relationship OneToMany {
-  ProductOrder{invoice} to Invoice{order(code) required},
   ProductOrder{orderItem} to OrderItem{order(code) required},
   ProductCategory{product} to Product{productCategory(name)},
-  Customer{order} to ProductOrder{customer(email) required},
-  Invoice{shipment} to Shipment{invoice(code) required}
+  Customer{order} to ProductOrder{customer(email) required}
 }
+
 relationship ManyToOne {
   OrderItem{product(name) required} to Product
 }
 
-paginate Customer, Invoice, OrderItem, Product, ProductOrder, Shipment with pagination
-service Customer, Invoice, OrderItem, Product, ProductCategory, ProductOrder, Shipment with serviceClass
+paginate Customer, OrderItem, Product, ProductOrder with pagination
+service Customer, OrderItem, Product, ProductCategory, ProductOrder with serviceClass

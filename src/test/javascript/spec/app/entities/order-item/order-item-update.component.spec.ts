@@ -18,7 +18,7 @@ describe('Component Tests', () => {
       TestBed.configureTestingModule({
         imports: [StoreTestModule],
         declarations: [OrderItemUpdateComponent],
-        providers: [FormBuilder]
+        providers: [FormBuilder],
       })
         .overrideTemplate(OrderItemUpdateComponent, '')
         .compileComponents();

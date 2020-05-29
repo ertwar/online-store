@@ -4,18 +4,28 @@
     {
       "fieldName": "placedDate",
       "fieldType": "Instant",
-      "fieldValidateRules": ["required"]
+      "fieldValidateRules": [
+        "required"
+      ]
     },
     {
       "fieldName": "status",
       "fieldType": "OrderStatus",
       "fieldValues": "COMPLETED,PENDING,CANCELLED",
-      "fieldValidateRules": ["required"]
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "invoiceId",
+      "fieldType": "Long"
     },
     {
       "fieldName": "code",
       "fieldType": "String",
-      "fieldValidateRules": ["required"]
+      "fieldValidateRules": [
+        "required"
+      ]
     }
   ],
   "relationships": [
@@ -24,12 +34,6 @@
       "otherEntityName": "orderItem",
       "otherEntityRelationshipName": "order",
       "relationshipName": "orderItem"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "invoice",
-      "otherEntityRelationshipName": "order",
-      "relationshipName": "invoice"
     },
     {
       "relationshipType": "many-to-one",

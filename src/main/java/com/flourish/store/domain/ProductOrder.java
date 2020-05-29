@@ -34,15 +34,15 @@ public class ProductOrder implements Serializable {
     @Column(name = "status", nullable = false)
     private OrderStatus status;
 
+    @Column(name = "invoice_id")
+    private Long invoiceId;
+
     @NotNull
     @Column(name = "code", nullable = false)
     private String code;
 
     @OneToMany(mappedBy = "order")
     private Set<OrderItem> orderItems = new HashSet<>();
-
-    @OneToMany(mappedBy = "order")
-    private Set<Invoice> invoices = new HashSet<>();
 
     @ManyToOne(optional = false)
     @NotNull
@@ -84,6 +84,19 @@ public class ProductOrder implements Serializable {
         this.status = status;
     }
 
+    public Long getInvoiceId() {
+        return invoiceId;
+    }
+
+    public ProductOrder invoiceId(Long invoiceId) {
+        this.invoiceId = invoiceId;
+        return this;
+    }
+
+    public void setInvoiceId(Long invoiceId) {
+        this.invoiceId = invoiceId;
+    }
+
     public String getCode() {
         return code;
     }
@@ -120,31 +133,6 @@ public class ProductOrder implements Serializable {
 
     public void setOrderItems(Set<OrderItem> orderItems) {
         this.orderItems = orderItems;
-    }
-
-    public Set<Invoice> getInvoices() {
-        return invoices;
-    }
-
-    public ProductOrder invoices(Set<Invoice> invoices) {
-        this.invoices = invoices;
-        return this;
-    }
-
-    public ProductOrder addInvoice(Invoice invoice) {
-        this.invoices.add(invoice);
-        invoice.setOrder(this);
-        return this;
-    }
-
-    public ProductOrder removeInvoice(Invoice invoice) {
-        this.invoices.remove(invoice);
-        invoice.setOrder(null);
-        return this;
-    }
-
-    public void setInvoices(Set<Invoice> invoices) {
-        this.invoices = invoices;
     }
 
     public Customer getCustomer() {
@@ -184,6 +172,7 @@ public class ProductOrder implements Serializable {
             "id=" + getId() +
             ", placedDate='" + getPlacedDate() + "'" +
             ", status='" + getStatus() + "'" +
+            ", invoiceId=" + getInvoiceId() +
             ", code='" + getCode() + "'" +
             "}";
     }

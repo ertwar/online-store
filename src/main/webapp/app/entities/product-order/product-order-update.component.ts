@@ -14,7 +14,7 @@ import { CustomerService } from 'app/entities/customer/customer.service';
 
 @Component({
   selector: 'jhi-product-order-update',
-  templateUrl: './product-order-update.component.html'
+  templateUrl: './product-order-update.component.html',
 })
 export class ProductOrderUpdateComponent implements OnInit {
   isSaving = false;
@@ -24,8 +24,9 @@ export class ProductOrderUpdateComponent implements OnInit {
     id: [],
     placedDate: [null, [Validators.required]],
     status: [null, [Validators.required]],
+    invoiceId: [],
     code: [null, [Validators.required]],
-    customer: [null, Validators.required]
+    customer: [null, Validators.required],
   });
 
   constructor(
@@ -53,8 +54,9 @@ export class ProductOrderUpdateComponent implements OnInit {
       id: productOrder.id,
       placedDate: productOrder.placedDate ? productOrder.placedDate.format(DATE_TIME_FORMAT) : null,
       status: productOrder.status,
+      invoiceId: productOrder.invoiceId,
       code: productOrder.code,
-      customer: productOrder.customer
+      customer: productOrder.customer,
     });
   }
 
@@ -78,8 +80,9 @@ export class ProductOrderUpdateComponent implements OnInit {
       id: this.editForm.get(['id'])!.value,
       placedDate: this.editForm.get(['placedDate'])!.value ? moment(this.editForm.get(['placedDate'])!.value, DATE_TIME_FORMAT) : undefined,
       status: this.editForm.get(['status'])!.value,
+      invoiceId: this.editForm.get(['invoiceId'])!.value,
       code: this.editForm.get(['code'])!.value,
-      customer: this.editForm.get(['customer'])!.value
+      customer: this.editForm.get(['customer'])!.value,
     };
   }
 

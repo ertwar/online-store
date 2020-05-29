@@ -40,6 +40,10 @@
     "languages": ["en", "zh-cn"],
     "blueprints": [],
     "herokuAppName": "mighty-retreat-24621",
-    "herokuDeployType": "git"
-  }
+    "herokuDeployType": "git",
+    "skipUserManagement": false,
+    "skipClient": false,
+    "skipServer": false
+  },
+  "entities": ["Customer", "OrderItem", "Product", "ProductCategory", "ProductOrder"]
 }

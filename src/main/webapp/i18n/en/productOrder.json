@@ -18,9 +18,9 @@
       },
       "placedDate": "Placed Date",
       "status": "Status",
+      "invoiceId": "Invoice Id",
       "code": "Code",
       "orderItem": "Order Item",
-      "invoice": "Invoice",
       "customer": "Customer"
     }
   }

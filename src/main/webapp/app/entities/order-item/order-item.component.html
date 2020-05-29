@@ -2,7 +2,7 @@
     <h2 id="page-heading">
         <span jhiTranslate="storeApp.orderItem.home.title">Order Items</span>
 
-        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-item" [routerLink]="['/order-item/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-order-item" [routerLink]="['/order-item/new']">
             <fa-icon icon="plus"></fa-icon>
             <span  jhiTranslate="storeApp.orderItem.home.createLabel">
             Create a new Order Item
@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         <div *ngIf="orderItem.order">
-                            <a [routerLink]="['/','product-order', orderItem.order?.id, 'view']" >{{ orderItem.order?.code }}</a>
+                            <a [routerLink]="['/product-order', orderItem.order?.id, 'view']" >{{ orderItem.order?.code }}</a>
                         </div>
                     </td>
                     <td class="text-right">
@@ -56,14 +56,14 @@
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
-                            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit"
+                            <button type="submit"
                                     [routerLink]="['/order-item', orderItem.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>
 
-                            <button *jhiHasAnyAuthority="'ROLE_ADMIN'" type="submit" (click)="delete(orderItem)"
+                            <button type="submit" (click)="delete(orderItem)"
                                     class="btn btn-danger btn-sm">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>

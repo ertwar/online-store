@@ -28,9 +28,9 @@ describe('Component Tests', () => {
                     pagingParams: {
                       predicate: 'id',
                       reverse: false,
-                      page: 0
-                    }
-                  })
+                      page: 0,
+                    },
+                  }),
               },
               queryParamMap: {
                 subscribe: (fn: (value: Data) => void) =>
@@ -38,13 +38,13 @@ describe('Component Tests', () => {
                     convertToParamMap({
                       page: '1',
                       size: '1',
-                      sort: 'id,desc'
+                      sort: 'id,desc',
                     })
-                  )
-              }
-            }
-          }
-        ]
+                  ),
+              },
+            },
+          },
+        ],
       })
         .overrideTemplate(ProductOrderComponent, '')
         .compileComponents();
@@ -61,7 +61,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new ProductOrder(123)],
-            headers
+            headers,
           })
         )
       );
@@ -81,7 +81,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new ProductOrder(123)],
-            headers
+            headers,
           })
         )
       );

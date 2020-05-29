@@ -2,6 +2,7 @@ package com.flourish.store.web.rest;
 
 import com.flourish.store.StoreApp;
 import com.flourish.store.domain.Customer;
+import com.flourish.store.domain.User;
 import com.flourish.store.repository.CustomerRepository;
 import com.flourish.store.service.CustomerService;
 
@@ -28,8 +29,7 @@ import com.flourish.store.domain.enumeration.Gender;
  */
 @SpringBootTest(classes = StoreApp.class)
 @AutoConfigureMockMvc
-@WithMockUser(username="admin", authorities={"ROLE_ADMIN"},
-    password = "admin")
+@WithMockUser
 public class CustomerResourceIT {
 
     private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
@@ -41,8 +41,8 @@ public class CustomerResourceIT {
     private static final Gender DEFAULT_GENDER = Gender.MALE;
     private static final Gender UPDATED_GENDER = Gender.FEMALE;
 
-    private static final String DEFAULT_EMAIL = "T6zQ@Uv\"D'.}!>M*";
-    private static final String UPDATED_EMAIL = "5TL^@[8LRX%.1U!wH";
+    private static final String DEFAULT_EMAIL = "Uv\"D'@}!>M*.5TL^";
+    private static final String UPDATED_EMAIL = "[8LRX%@1U!wH.{~cxyH";
 
     private static final String DEFAULT_PHONE = "AAAAAAAAAA";
     private static final String UPDATED_PHONE = "BBBBBBBBBB";
@@ -90,6 +90,11 @@ public class CustomerResourceIT {
             .addressLine2(DEFAULT_ADDRESS_LINE_2)
             .city(DEFAULT_CITY)
             .country(DEFAULT_COUNTRY);
+        // Add required entity
+        User user = UserResourceIT.createEntity(em);
+        em.persist(user);
+        em.flush();
+        customer.setUser(user);
         return customer;
     }
     /**
@@ -109,6 +114,11 @@ public class CustomerResourceIT {
             .addressLine2(UPDATED_ADDRESS_LINE_2)
             .city(UPDATED_CITY)
             .country(UPDATED_COUNTRY);
+        // Add required entity
+        User user = UserResourceIT.createEntity(em);
+        em.persist(user);
+        em.flush();
+        customer.setUser(user);
         return customer;
     }
 
@@ -335,7 +345,7 @@ public class CustomerResourceIT {
             .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
             .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)));
     }
-
+    
     @Test
     @Transactional
     public void getCustomer() throws Exception {

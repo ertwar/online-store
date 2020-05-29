@@ -13,7 +13,7 @@ import { ProductOrderDeleteDialogComponent } from './product-order-delete-dialog
 
 @Component({
   selector: 'jhi-product-order',
-  templateUrl: './product-order.component.html'
+  templateUrl: './product-order.component.html',
 })
 export class ProductOrderComponent implements OnInit, OnDestroy {
   productOrders?: IProductOrder[];
@@ -40,7 +40,7 @@ export class ProductOrderComponent implements OnInit, OnDestroy {
       .query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
       })
       .subscribe(
         (res: HttpResponse<IProductOrder[]>) => this.onSuccess(res.body, res.headers, pageToLoad),
@@ -113,8 +113,8 @@ export class ProductOrderComponent implements OnInit, OnDestroy {
       queryParams: {
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc')
-      }
+        sort: this.predicate + ',' + (this.ascending ? 'asc' : 'desc'),
+      },
     });
     this.productOrders = data || [];
   }
