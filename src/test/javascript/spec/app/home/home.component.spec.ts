@@ -15,7 +15,7 @@ describe('Component Tests', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [StoreTestModule],
-        declarations: [HomeComponent]
+        declarations: [HomeComponent],
       })
         .overrideTemplate(HomeComponent, '')
         .compileComponents();

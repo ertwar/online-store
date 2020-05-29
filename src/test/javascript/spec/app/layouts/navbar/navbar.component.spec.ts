@@ -17,7 +17,7 @@ describe('Component Tests', () => {
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [StoreTestModule],
-        declarations: [NavbarComponent]
+        declarations: [NavbarComponent],
       })
         .overrideTemplate(NavbarComponent, '')
         .compileComponents();
